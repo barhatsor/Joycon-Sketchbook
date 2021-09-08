@@ -9,7 +9,8 @@
     "game",
     "engine",
     "typescript",
-    "sketchbook"
+    "sketchbook",
+    "a"
   ],
   "main": "build/sketchbook.min.js",
   "types": "build/types/sketchbook.d.ts",
