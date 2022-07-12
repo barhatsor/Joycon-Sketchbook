@@ -136,7 +136,7 @@ let Gamepad = {
     
   },
   
-  'addGamepadListeners': () => {
+  'addListeners': () => {
     
     window.addEventListener('gamepadconnected', (e) => {
       
@@ -188,5 +188,5 @@ let Gamepad = {
   
 };
 
-Gamepad.addGamepadListeners();
+Gamepad.addListeners();
 
