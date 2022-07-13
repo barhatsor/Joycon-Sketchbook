@@ -10,6 +10,13 @@ controllers.on.press('a', (value) => {
 
 });
 
+controllers.on.press('left-joystick', (value) => {
+
+  if (value == 1) Client.pressKey('ShiftLeft');
+  else Client.releaseKey('ShiftLeft');
+
+});
+
 let leftJoystick = {
   x: 0,
   y: 0
