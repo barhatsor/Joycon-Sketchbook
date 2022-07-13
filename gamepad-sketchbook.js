@@ -10,9 +10,24 @@ controllers.on.press('a', (value) => {
 
 });
 
+let leftJoystick = {
+  x: 0,
+  y: 0
+};
+
 controllers.on.move('left-joystick', (value) => {
 
-  Client.moveMouse(value.x, value.y);
+  leftJoystick = value;
   
 });
+
+function gameLoop() {
+  
+  Client.moveMouse(leftJoystick.x, leftJoystick.y);
+  
+  window.requestAnimationFrame(gameLoop);
+  
+}
+
+gameLoop();
 
