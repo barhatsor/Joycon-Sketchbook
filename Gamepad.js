@@ -4,7 +4,7 @@ let Gamepad = {
   // event listeners
   'listeners': {},
   
-  // controller objects
+  // controllers
   'controller': [],
   
   // controller utility functions
