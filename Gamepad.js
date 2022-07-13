@@ -25,7 +25,9 @@ let Gamepad = {
       // joystick-left, joystick-right, trigger-left, trigger-right
       'move': (key, callback) => {
         
-        Gamepad.listeners[key + '-move'] = {
+        if (key.startsWith('joystick')) key += '-move';
+        
+        Gamepad.listeners[key] = {
           callback: callback,
           lastValue: {
             x: 0,
