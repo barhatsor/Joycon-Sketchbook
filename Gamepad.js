@@ -28,7 +28,30 @@ let Gamepad = {
           }
         };
         
+      },
+      
+      
+      'connect': (callback) => {
+        
+        Gamepad.listeners['controller-connected'] = {
+          callback: callback
+        };
+                
+      },
+      
+      'disconnect': (callback) => {
+        
+        Gamepad.listeners['controller-disconnected'] = {
+          callback: callback
+        };
+                
       }
+      
+    },
+    
+    'removeListener': (name) => {
+      
+      delete Gamepad.listeners[name];
       
     }
     
@@ -58,7 +81,7 @@ let Gamepad = {
           if (button.value !== buttonListener.lastValue) {
           
             // call button listener with button value
-            Gamepad.listeners[buttonName].callback(button.value);
+            buttonListener.callback(button.value);
             
           }
 
@@ -95,7 +118,7 @@ let Gamepad = {
               axisObj.y !== axisListener.lastValue.y) {
             
             // call axis listener with axis value
-            Gamepad.listeners[axisName].callback({
+            axisListener.callback({
               x: axisObj.x,
               y: axisObj.y
             });
@@ -144,11 +167,33 @@ let Gamepad = {
       
       Gamepad.onNextFrame(Gamepad.update);
       
+      
+      const controllerListener = Gamepad.listeners['controller-connected'];
+      
+      // if controller listener exists
+      if (controllerListener) {
+        
+        // call controller listener
+        controllerListener.callback(e.gamepad);
+        
+      }
+      
     });
     
     window.addEventListener('gamepaddisconnected', (e) => {
       
       delete Gamepad.controllers[e.gamepad.index];
+      
+      
+      const controllerListener = Gamepad.listeners['controller-disconnected'];
+      
+      // if controller listener exists
+      if (controllerListener) {
+        
+        // call controller listener
+        controllerListener.callback(e.gamepad);
+        
+      }
       
     });
     
