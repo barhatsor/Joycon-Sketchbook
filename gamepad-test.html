@@ -23,8 +23,9 @@
     buttons.forEach(button => {
     
       controllers.on.press(button, (value) => {
-        console.log(button + '!', value);
+        
         message.textContent = button + '! ' + value;
+        
       });
       
     });
@@ -32,14 +33,12 @@
     controllers.on.move('joystick-left', (value) => {
       
       console.log('Moved left joystick!', value.x, value.y);
-      message.textContent = 'Moved left joystick! ' + value.x + ',' + value.y;
       
     });
     
     controllers.on.move('joystick-right', (value) => {
       
       console.log('Moved right joystick!', value.x, value.y);
-      message.textContent = 'Moved right joystick! ' + value.x + ',' + value.y;
       
     });
     
