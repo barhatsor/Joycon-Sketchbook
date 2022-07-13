@@ -1,8 +1,13 @@
 
 let Gamepad = {
   
+  // event listeners
   'listeners': {},
   
+  // controller objects
+  'controller': [],
+  
+  // controller utility functions
   'controllers': {
     
     'on': {
@@ -53,6 +58,36 @@ let Gamepad = {
       
       delete Gamepad.listeners[name];
       
+    },
+    
+    'vibrate': async (options) => {
+      
+      // parse vibration options
+      options = {
+        duration: options.duration,
+        strongMagnitude: options.strongMotorIntensity,
+        weakMagnitude: options.weakMotorIntensity
+      };
+      
+      
+      // vibrate all controllers
+      
+      const controllers = Object.values(Gamepad.controller);
+    
+      controllers.forEach(controller => {
+      
+        // if controller can vibrate
+        
+        const vibrationMotor = controller.vibrationActuator;
+        
+        if (vibrationMotor) {
+          
+          await vibrationMotor.playEffect('dual-rumble', options);
+          
+        }
+        
+      }
+  
     }
     
   },
@@ -62,7 +97,7 @@ let Gamepad = {
     Gamepad.updateControllers();
     
     
-    const controllers = Object.values(Gamepad.controllers);
+    const controllers = Object.values(Gamepad.controller);
     
     controllers.forEach(controller => {
       
@@ -133,7 +168,7 @@ let Gamepad = {
     
     
     // if controllers are connected
-    if (Object.keys(Gamepad.controllers).length
+    if (Object.keys(Gamepad.controller).length
          !== 0) {
       
       // update
@@ -151,7 +186,7 @@ let Gamepad = {
       
       if (controller && controller.index) {
         
-        Gamepad.controllers[controller.index] = controller;
+        Gamepad.controller[controller.index] = controller;
         
       }
       
@@ -163,7 +198,7 @@ let Gamepad = {
     
     window.addEventListener('gamepadconnected', (e) => {
       
-      Gamepad.controllers[e.gamepad.index] = e.gamepad;
+      Gamepad.controller[e.gamepad.index] = e.gamepad;
       
       Gamepad.onNextFrame(Gamepad.update);
       
@@ -182,7 +217,7 @@ let Gamepad = {
     
     window.addEventListener('gamepaddisconnected', (e) => {
       
-      delete Gamepad.controllers[e.gamepad.index];
+      delete Gamepad.controller[e.gamepad.index];
       
       
       const controllerListener = Gamepad.listeners['controller-disconnected'];
