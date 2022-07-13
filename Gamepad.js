@@ -226,7 +226,7 @@ let Gamepad = {
   
   'updateControllers': () => {
     
-    const controllers = Object.values(navigator.getGamepads());
+    const controllers = navigator.getGamepads();
     
     controllers.forEach(controller => {
       
