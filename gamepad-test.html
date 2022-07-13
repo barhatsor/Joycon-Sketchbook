@@ -17,7 +17,30 @@
     
     const controllers = Gamepad.controllers;
     const message = document.querySelector('.message');
-
+    
+    const buttons = Object.values(Gamepad.buttonMap);
+    
+    buttons.forEach(button => {
+    
+      controllers.on.press(button, (value) => {
+        console.log(button + '!', value);
+        message.textContent = button + '! ' + value;
+      });
+      
+    });
+    
+    controllers.on.move('joystick-left', (value) => {
+      
+      console.log('Moved left joystick!', value.x, value.y);
+      
+    });
+    
+    controllers.on.move('joystick-right', (value) => {
+      
+      console.log('Moved right joystick!', value.x, value.y);
+      
+    });
+    
     controllers.on.connect((controller) => {
       
       console.log('Controller connected!', controller);
@@ -25,25 +48,10 @@
       
     });
     
-    controllers.on.press('start', (value) => {
-      console.log('Start!', value);
-    });
-    
-    controllers.on.move('joystick-left', (value) => {
+    controllers.on.disconnect((controller) => {
       
-      console.log('Moved joystick!', value.x, value.y);
-      
-    });
-    
-    controllers.on.press('joystick-left', (value) => {
-      
-      console.log('Pressed joystick!', value);
-      
-    });
-    
-    controllers.on.press('trigger-left', (value) => {
-      
-      console.log('Pressed trigger!', value);
+      console.log('Controller disconnected!', controller);
+      message.textContent = 'Controller disconnected';
       
     });
     
