@@ -300,7 +300,7 @@ let Gamepad = {
     17: 'share'
   },
   
-  'axesMap': {
+  'axisMap': {
     0: ['x', 'joystick-left'],
     1: ['y', 'joystick-left'],
     2: ['x', 'joystick-right'],
