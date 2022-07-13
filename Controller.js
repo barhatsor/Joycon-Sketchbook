@@ -1,5 +1,5 @@
 
-let Controller = {
+let Client = {
   
   // keys are: KeyA, KeyW, KeyD, KeyS, Space, ShiftLeft
   'pressKey': (keyName) => {
