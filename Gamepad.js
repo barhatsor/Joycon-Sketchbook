@@ -5,7 +5,7 @@ let Gamepad = {
   'listeners': {},
   
   // controllers
-  'controller': [],
+  'controller': {},
   
   // controller utility functions
   'controllers': {
