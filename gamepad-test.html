@@ -57,13 +57,13 @@
       
     });
     
-    controllers.on.move('joystick-left', (value) => {      
+    controllers.on.move('left-joystick', (value) => {      
       
       joystickMessage.textContent = 'Moved left joystick! ' + value.x + ',' + value.y;
       
     });
     
-    controllers.on.move('joystick-right', (value) => {
+    controllers.on.move('right-joystick', (value) => {
       
       joystickMessage.textContent = 'Moved right joystick! ' + value.x + ',' + value.y;
             
