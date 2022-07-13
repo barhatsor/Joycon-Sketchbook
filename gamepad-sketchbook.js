@@ -17,6 +17,13 @@ controllers.on.press('left-joystick', (value) => {
 
 });
 
+controllers.on.press('x', (value) => {
+
+  if (value == 1) Client.pressKey('KeyF');
+  else Client.releaseKey('KeyF');
+
+});
+
 let leftJoystick = {
   x: 0,
   y: 0
