@@ -155,7 +155,9 @@ let Gamepad = {
           
           // if the button's value changed
           if (button.value !== buttonListener.lastValue) {
-          
+            
+            buttonListener.lastValue = button.value;
+            
             // call button listener with button value
             buttonListener.callback(button.value);
             
@@ -193,6 +195,8 @@ let Gamepad = {
           // if the axis' value changed
           if (axisObj.x !== axisListener.lastValue.x ||
               axisObj.y !== axisListener.lastValue.y) {
+            
+            axisListener.lastValue = axisObj;
             
             // call axis listener with axis value
             axisListener.callback({
