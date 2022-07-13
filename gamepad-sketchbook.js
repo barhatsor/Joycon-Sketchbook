@@ -10,3 +10,9 @@ controllers.on.press('a', (value) => {
 
 });
 
+controllers.on.move('left-joystick', (value) => {
+
+  Client.moveMouse(value.x, value.y);
+  
+});
+
