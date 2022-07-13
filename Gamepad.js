@@ -83,8 +83,8 @@ let Gamepad = {
       // parse vibration options
       const vibrationOptions = {
         duration: duration,
-        strongMagnitude: options.strongMotorIntensity,
-        weakMagnitude: options.weakMotorIntensity
+        strongMagnitude: intensity.strongMotorIntensity,
+        weakMagnitude: intensity.weakMotorIntensity
       };
       
       
