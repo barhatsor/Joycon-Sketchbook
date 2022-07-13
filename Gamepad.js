@@ -183,7 +183,7 @@ let Gamepad = {
       });
       
       // run on all axes
-      Object.values(axes).forEach(axisName => {
+      Object.keys(axes).forEach(axisName => {
         
         const axisListener = Gamepad.listeners[axisName];
         
