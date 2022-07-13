@@ -96,12 +96,17 @@ let Gamepad = {
         if (vibrationMotor) {
           
           // vibrate
-          await vibrationMotor.playEffect('dual-rumble', vibrationOptions);
+          vibrationMotor.playEffect('dual-rumble', vibrationOptions);
           
         }
         
       }
-  
+      
+      // await vibration end
+      await new Promise((resolve) => {
+        window.setTimeout(resolve, duration);
+      });
+      
     },
     
     'vibrationPresets': {
