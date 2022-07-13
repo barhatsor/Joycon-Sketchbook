@@ -2,15 +2,29 @@
 <html>
 
 <head>
-	<title>Sketchbook</title>
+  <title>Gamepad.js</title>
+  <style>
+    body {
+      font-family: system-ui;
+    }
+  </style>
 </head>
 
 <body>
-	<script src="build/sketchbook.min.js"></script>
-	<script>
-		const world = new Sketchbook.World('build/assets/world.glb');
-	</script>
-	<script src="Controller.js"></script>
+  <h1 class="message">Press a button</h1>
+  <script src="Gamepad.js"></script>
+  <script>
+    
+    const controllers = Gamepad.controllers;
+    const message = document.querySelector('.message');
+
+    controllers.on.connect((controller) => {
+      
+      message.textContent = 'Controller connected';
+      
+    });
+    
+  </script>
 </body>
 
 </html>
