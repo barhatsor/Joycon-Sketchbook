@@ -25,7 +25,7 @@ let Gamepad = {
       // joystick-left, joystick-right, trigger-left, trigger-right
       'move': (key, callback) => {
         
-        Gamepad.listeners[key] = {
+        Gamepad.listeners[key + '-move'] = {
           callback: callback,
           lastValue: {
             x: 0,
@@ -306,10 +306,10 @@ let Gamepad = {
   },
   
   'axisMap': {
-    0: ['x', 'joystick-left'],
-    1: ['y', 'joystick-left'],
-    2: ['x', 'joystick-right'],
-    3: ['y', 'joystick-right'],
+    0: ['x', 'joystick-left-move'],
+    1: ['y', 'joystick-left-move'],
+    2: ['x', 'joystick-right-move'],
+    3: ['y', 'joystick-right-move'],
   }
   
 };
