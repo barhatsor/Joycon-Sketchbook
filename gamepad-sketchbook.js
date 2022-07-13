@@ -24,20 +24,20 @@ controllers.on.press('x', (value) => {
 
 });
 
-let leftJoystick = {
+let rightJoystick = {
   x: 0,
   y: 0
 };
 
-controllers.on.move('left-joystick', (value) => {
+controllers.on.move('right-joystick', (value) => {
 
-  leftJoystick = value;
+  rightJoystick = value;
   
 });
 
 function gameLoop() {
   
-  Client.moveMouse(leftJoystick.x * 10, leftJoystick.y * 10);
+  Client.moveMouse(rightJoystick.x * 10, rightJoystick.y * 10);
   
   window.requestAnimationFrame(gameLoop);
   
