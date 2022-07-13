@@ -12,7 +12,7 @@ let Gamepad = {
     
     'on': {
       
-      // a, b, x, y, shoulder-left, shoulder-right, select, start, joystick-left, joystick-right, dpad-up, dpad-down, dpad-left, dpad-right, home, share
+      // a, b, x, y, shoulder-left, shoulder-right, trigger-left, trigger-right, select, start, joystick-left, joystick-right, dpad-up, dpad-down, dpad-left, dpad-right, home, share
       'press': (key, callback) => {
         
         Gamepad.listeners[key] = {
@@ -22,12 +22,10 @@ let Gamepad = {
         
       },
       
-      // joystick-left, joystick-right, trigger-left, trigger-right
+      // joystick-left, joystick-right
       'move': (key, callback) => {
         
-        if (key.startsWith('joystick')) key += '-move';
-        
-        Gamepad.listeners[key] = {
+        Gamepad.listeners[key + '-move'] = {
           callback: callback,
           lastValue: {
             x: 0,
@@ -56,6 +54,9 @@ let Gamepad = {
       
     },
     
+    // remove the listener for joystick move events
+    // by adding '-move' to the event, eg.
+    // joystick-left-move
     'removeListener': (name) => {
       
       delete Gamepad.listeners[name];
