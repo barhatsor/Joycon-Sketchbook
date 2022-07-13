@@ -135,6 +135,9 @@ let Gamepad = {
     Gamepad.updateControllers();
     
     
+    const buttonMap = Gamepad.buttonMap;
+    const axisMap = Gamepad.axisMap;
+    
     const controllers = Object.values(Gamepad.controller);
     
     controllers.forEach(controller => {
