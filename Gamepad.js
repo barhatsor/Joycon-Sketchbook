@@ -54,8 +54,8 @@ let Gamepad = {
       
     },
     
-    // remove the listener for joystick move events
-    // by adding '-move' to the event, eg.
+    // remove the listener for move events
+    // by adding '-move' to the event name, eg.
     // joystick-left-move
     'removeListener': (name) => {
       
