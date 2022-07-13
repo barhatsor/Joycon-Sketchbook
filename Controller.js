@@ -2,7 +2,7 @@
 let Controller = {
   
   // keys are: keyA, keyW, keyD, keyS, Space, ShiftLeft
-  'pressKey' = (keyName) => {
+  'pressKey': (keyName) => {
     
     const keyEvent = new KeyboardEvent('keydown', {
       'code': keyName
@@ -12,7 +12,7 @@ let Controller = {
     
   },
   
-  'releaseKey' = (keyName) => {
+  'releaseKey': (keyName) => {
     
     const keyEvent = new KeyboardEvent('keyup', {
       'code': keyName
@@ -22,7 +22,7 @@ let Controller = {
     
   },
   
-  'moveMouse' = (deltaX, deltaY) => {
+  'moveMouse': (deltaX, deltaY) => {
 
     let tempEvent = new MouseEvent('mousedown');
     document.querySelector('#canvas').dispatchEvent(tempEvent);
