@@ -12,6 +12,14 @@
       opacity: 0.5;
       pointer-events: none;
     }
+    
+    a {
+      display: block;
+      margin-top: 20px;
+      color: inherit;
+      position: absolute;
+      bottom: calc(0.67em + 8px);
+    }
   </style>
 </head>
 
@@ -27,7 +35,7 @@
     <button onclick="controllers.vibrate({ preset: 'strong' }, 1000)">Strong</button>
   </div>
   <hr>
-  <h4>Gamepad.js on GitHub</h4>
+  <a href="https://github.com/barhatsor/gamepadjs">Gamepad.js</a>
   
   <script src="Gamepad.js"></script>
   <script>
