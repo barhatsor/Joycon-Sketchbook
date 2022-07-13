@@ -100,7 +100,7 @@ let Gamepad = {
           
         }
         
-      }
+      });
       
       // await vibration end
       await new Promise((resolve) => {
