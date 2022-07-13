@@ -175,6 +175,7 @@ let Gamepad = {
         const axis = axisMap[index][0];
         const axisName = axisMap[index][1];
         
+        if (!axes[axisName]) axes[axisName] = {};
         axes[axisName][axis] = axisValue;
         
       });
