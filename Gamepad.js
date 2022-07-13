@@ -230,7 +230,7 @@ let Gamepad = {
     
     controllers.forEach(controller => {
       
-      if (controller && controller.index) {
+      if (controller && controller.index !== undefined) {
         
         Gamepad.controller[controller.index] = controller;
         
