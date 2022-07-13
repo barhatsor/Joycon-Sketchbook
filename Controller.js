@@ -1,7 +1,7 @@
 
 let Controller = {
   
-  // keys are: keyA, keyW, keyD, keyS, Space, ShiftLeft
+  // keys are: KeyA, KeyW, KeyD, KeyS, Space, ShiftLeft
   'pressKey': (keyName) => {
     
     const keyEvent = new KeyboardEvent('keydown', {
