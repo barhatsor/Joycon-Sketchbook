@@ -18,13 +18,16 @@
 <body>
   <h1 class="message">Move a controller</h1>
   <hr>
-  
+  <h3 class="joystick-message"></h3>
+  <hr>
   <h2>Rumble</h2>
   <div class="rumble-buttons disabled">
     <button onclick="controllers.vibrate({ preset: 'mild' }, 250)">Mild</button>
     <button onclick="controllers.vibrate({ preset: 'medium' }, 500)">Medium</button>
     <button onclick="controllers.vibrate({ preset: 'strong' }, 1000)">Strong</button>
   </div>
+  <hr>
+  <h4>Gamepad.js on GitHub</h4>
   
   <script src="Gamepad.js"></script>
   <script>
@@ -32,6 +35,7 @@
     const controllers = Gamepad.controllers;
     
     const message = document.querySelector('.message');
+    const joystickMessage = document.querySelector('.joystick-message');
     const rumbleButtons = document.querySelector('.rumble-buttons');
     
     const buttons = Object.values(Gamepad.buttonMap);
@@ -46,16 +50,16 @@
       
     });
     
-    controllers.on.move('joystick-left', (value) => {
+    controllers.on.move('joystick-left', (value) => {      
       
-      console.log('Moved left joystick!', value.x, value.y);
+      joystickMessage.textContent = 'Moved left joystick! ' + value.x + ',' + value.y;
       
     });
     
     controllers.on.move('joystick-right', (value) => {
       
-      console.log('Moved right joystick!', value.x, value.y);
-      
+      joystickMessage.textContent = 'Moved right joystick! ' + value.x + ',' + value.y;
+            
     });
     
     controllers.on.connect((controller) => {
