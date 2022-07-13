@@ -13,8 +13,12 @@
 <body>
   <h1 class="message">Press a button</h1>
   <hr>
+  
   <h2>Vibrate</h2>
-  <button>Mild</button><button>Medium</button><button>Strong</button>
+  <button onclick="controllers.vibrate({ preset: 'mild' }, 250)">Mild</button>
+  <button onclick="controllers.vibrate({ preset: 'medium' }, 500)">Medium</button>
+  <button onclick="controllers.vibrate({ preset: 'strong' }, 1000)">Strong</button>
+  
   <script src="Gamepad.js"></script>
   <script>
     
