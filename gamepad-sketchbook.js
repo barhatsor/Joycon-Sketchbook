@@ -23,7 +23,7 @@ controllers.on.move('left-joystick', (value) => {
 
 function gameLoop() {
   
-  Client.moveMouse(leftJoystick.x, leftJoystick.y);
+  Client.moveMouse(leftJoystick.x * 10, leftJoystick.y * 10);
   
   window.requestAnimationFrame(gameLoop);
   
