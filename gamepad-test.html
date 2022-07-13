@@ -29,9 +29,15 @@
       console.log('Start!', value);
     });
     
-    controllers.on.move('joystick-right', (value) => {
+    controllers.on.move('joystick-left', (value) => {
       
-      console.log('Moved!', value.x, value.y);
+      console.log('Moved joystick!', value.x, value.y);
+      
+    });
+    
+    controllers.on.press('joystick-left', (value) => {
+      
+      console.log('Pressed joystick!', value);
       
     });
     
