@@ -64,7 +64,7 @@ let Gamepad = {
     },
     
     // intensity:
-    // { preset } or { strongMotorIntensity, weakMotorIntensity }
+    // { preset } or { strongMotorIntensity, mildMotorIntensity }
     // presets:
     // 'mild', 'medium', 'strong'
     'vibrate': async (intensity, duration) => {
@@ -84,7 +84,7 @@ let Gamepad = {
       const vibrationOptions = {
         duration: duration,
         strongMagnitude: intensity.strongMotorIntensity,
-        weakMagnitude: intensity.weakMotorIntensity
+        weakMagnitude: intensity.mildMotorIntensity
       };
       
       
@@ -116,17 +116,17 @@ let Gamepad = {
 
       mild: {
         strongMotorIntensity: 0,
-        weakMotorIntensity: 0.07
+        mildMotorIntensity: 0.07
       },
 
       medium: {
         strongMotorIntensity: 0,
-        weakMotorIntensity: 0.14
+        mildMotorIntensity: 0.14
       },
 
       strong: {
         strongMotorIntensity: 1,
-        weakMotorIntensity: 1
+        mildMotorIntensity: 1
       }
 
     }
