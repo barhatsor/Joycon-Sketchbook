@@ -154,7 +154,7 @@ let Gamepad = {
     
   },
   
-  'onNextFrame' = (callback) => {
+  'onNextFrame': (callback) => {
     window.requestAnimationFrame(callback);
   },
   
