@@ -7,6 +7,11 @@
     body {
       font-family: system-ui;
     }
+    
+    .rumble-buttons.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -14,16 +19,20 @@
   <h1 class="message">Press something on a controller</h1>
   <hr>
   
-  <h2>Vibrate</h2>
-  <button onclick="controllers.vibrate({ preset: 'mild' }, 250)">Mild</button>
-  <button onclick="controllers.vibrate({ preset: 'medium' }, 500)">Medium</button>
-  <button onclick="controllers.vibrate({ preset: 'strong' }, 1000)">Strong</button>
+  <h2>Rumble</h2>
+  <div class="rumble-buttons">
+    <button onclick="controllers.vibrate({ preset: 'mild' }, 250)">Mild</button>
+    <button onclick="controllers.vibrate({ preset: 'medium' }, 500)">Medium</button>
+    <button onclick="controllers.vibrate({ preset: 'strong' }, 1000)">Strong</button>
+  </div>
   
   <script src="Gamepad.js"></script>
   <script>
     
     const controllers = Gamepad.controllers;
+    
     const message = document.querySelector('.message');
+    const rumbleButtons = document.querySelector('.rumble-buttons');
     
     const buttons = Object.values(Gamepad.buttonMap);
     
@@ -54,12 +63,16 @@
       console.log('Controller connected!', controller);
       message.textContent = 'Controller connected';
       
+      rumbleButtons.classList.remove('disabled');
+      
     });
     
     controllers.on.disconnect((controller) => {
       
       console.log('Controller disconnected!', controller);
       message.textContent = 'Controller disconnected';
+      
+      rumbleButtons.classList.add('disabled');
       
     });
     
