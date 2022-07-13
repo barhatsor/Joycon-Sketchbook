@@ -1,7 +1,7 @@
 
-/* Gamepad integration for Sketchbook */
+/* Joycon integration for Sketchbook */
 
-const controllers = Gamepad.controllers;
+const controllers = Joycon.controllers;
 
 controllers.on.press('a', (value) => {
 
