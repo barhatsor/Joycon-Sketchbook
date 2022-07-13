@@ -60,11 +60,26 @@ let Gamepad = {
       
     },
     
-    'vibrate': async (options) => {
+    // intensity:
+    // { preset } or { strongMotorIntensity, weakMotorIntensity }
+    // presets:
+    // 'mild', 'medium', 'strong'
+    'vibrate': async (intensity, duration) => {
+      
+      // if chosen a preset
+      if (intensity.preset) {
+        
+        // load preset
+        const presets = Gamepad.controllers.vibrationPresets;
+        const preset = presets[intensity.preset];
+        
+        intensity = preset;
+        
+      }
       
       // parse vibration options
-      options = {
-        duration: options.duration,
+      const vibrationOptions = {
+        duration: duration,
         strongMagnitude: options.strongMotorIntensity,
         weakMagnitude: options.weakMotorIntensity
       };
@@ -73,21 +88,39 @@ let Gamepad = {
       // vibrate all controllers
       
       const controllers = Object.values(Gamepad.controller);
-    
-      controllers.forEach(controller => {
       
-        // if controller can vibrate
-        
+      controllers.forEach(controller => {
+              
         const vibrationMotor = controller.vibrationActuator;
         
         if (vibrationMotor) {
           
-          await vibrationMotor.playEffect('dual-rumble', options);
+          // vibrate
+          await vibrationMotor.playEffect('dual-rumble', vibrationOptions);
           
         }
         
       }
   
+    },
+    
+    'vibrationPresets': {
+
+      mild: {
+        strongMotorIntensity: 0,
+        weakMotorIntensity: 0.07
+      },
+
+      medium: {
+        strongMotorIntensity: 0,
+        weakMotorIntensity: 0.14
+      },
+
+      strong: {
+        strongMotorIntensity: 1,
+        weakMotorIntensity: 1
+      }
+
     }
     
   },
