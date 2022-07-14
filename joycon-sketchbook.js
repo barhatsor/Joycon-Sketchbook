@@ -3,6 +3,18 @@
 
 const controllers = Joycon.controllers;
 
+
+let controllerConnected = false;
+
+controllers.on.connect(() => {
+  controllerConnected = true;
+});
+
+controllers.on.disconnect(() => {
+  controllerConnected = false;
+});
+
+
 controllers.on.press('a', (value) => {
 
   if (value == 1) Client.pressKey('Space');
@@ -23,6 +35,7 @@ controllers.on.press('x', (value) => {
   else Client.releaseKey('KeyF');
 
 });
+
 
 let leftJoystick = {
   x: 0,
@@ -46,6 +59,7 @@ controllers.on.move('right-joystick', (value) => {
   
 });
 
+
 function gameLoop() {
   
   Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
@@ -68,16 +82,6 @@ function gameLoop() {
     
     Client.moveMouse(0, -20);
     
-  }
-  
-  
-  const dialogEl = document.querySelector('.swal2-container');
-  const loading = (document.querySelector('#loading-screen').style.display !== 'none');
-  
-  if (!dialogEl && !loading) {
-    
-    window.requestAnimationFrame(gameLoop);
-  
   }
   
 }
