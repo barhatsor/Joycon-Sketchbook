@@ -67,14 +67,14 @@ controllers.on.move('right-joystick', (value) => {
 
 function gameLoop() {
   
-  Client.moveMouse(rightJoystick.x * 10, rightJoystick.y * 10);
+  Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
   
   if (leftJoystick.x > 0.3) {
     
     Client.pressKey('KeyD');
     Client.releaseKey('KeyA');
     
-  } else if (leftJoystick.x < 0.3) {
+  } else if (leftJoystick.x < -0.3) {
     
     Client.pressKey('KeyA');
     Client.releaseKey('KeyD');
@@ -91,7 +91,7 @@ function gameLoop() {
     Client.pressKey('KeyS');
     Client.releaseKey('KeyW');
         
-  } else if (leftJoystick.y < 0.3) {
+  } else if (leftJoystick.y < -0.3) {
     
     Client.pressKey('KeyW');
     Client.releaseKey('KeyS');
