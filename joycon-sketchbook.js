@@ -72,10 +72,12 @@ function gameLoop() {
   if (leftJoystick.x > 0.3) {
     
     Client.pressKey('KeyD');
+    Client.releaseKey('KeyA');
     
   } else if (leftJoystick.x < 0.3) {
     
     Client.pressKey('KeyA');
+    Client.releaseKey('KeyD');
     
   } else {
     
@@ -87,10 +89,12 @@ function gameLoop() {
   if (leftJoystick.y > 0.3) {
     
     Client.pressKey('KeyS');
+    Client.releaseKey('KeyW');
         
   } else if (leftJoystick.y < 0.3) {
     
     Client.pressKey('KeyW');
+    Client.releaseKey('KeyS');
     
   } else {
     
