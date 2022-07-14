@@ -2,10 +2,10 @@
 /* Joycon integration for Sketchbook */
 
 const controllers = Joycon.controllers;
-
+/*
 const actionMappings = {
   
-  /* car */
+  /* car /
   brake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   pitchDown: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
@@ -19,7 +19,7 @@ const actionMappings = {
   yawLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   yawRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   
-  /* helicopter */
+  /* helicopter /
   brake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   left: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
@@ -29,7 +29,7 @@ const actionMappings = {
   throttle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   view: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
 
-  /* airplane */
+  /* airplane /
   ascend: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   descend: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
@@ -42,7 +42,7 @@ const actionMappings = {
   yawLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   yawRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   
-};
+};*/
 
 
 let controllerConnected = false;
