@@ -83,7 +83,7 @@ function gameLoop() {
     Client.moveMouse(0, -20);
     
   }
-   
+  
   if (controllerConnected) {
     window.requestAnimationFrame(gameLoop);
   }
