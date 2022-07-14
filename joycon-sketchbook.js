@@ -3,6 +3,47 @@
 
 const controllers = Joycon.controllers;
 
+const actionMappings = {
+  
+  /* car */
+  brake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  pitchDown: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  pitchUp: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  rollLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  rollRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  seat_switch: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  throttle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  view: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  wheelBrake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  yawLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  yawRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  
+  /* helicopter */
+  brake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  left: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  reverse: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  right: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  seat_switch: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  throttle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  view: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+
+  /* airplane */
+  ascend: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  descend: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  pitchDown: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  pitchUp: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  rollLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  rollRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  seat_switch: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  view: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  yawLeft: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  yawRight: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  
+};
+
 
 let controllerConnected = false;
 
