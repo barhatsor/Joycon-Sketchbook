@@ -84,6 +84,10 @@ function gameLoop() {
     
   }
   
+  if (controllerConnected) {
+    window.requestAnimationFrame(gameLoop);
+  }
+  
 }
 
 gameLoop();
