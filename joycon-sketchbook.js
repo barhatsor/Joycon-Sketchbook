@@ -62,7 +62,7 @@ controllers.on.move('right-joystick', (value) => {
 
 function gameLoop() {
   
-  Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
+  Client.moveMouse(rightJoystick.x * 10, rightJoystick.y * 10);
   
   if (leftJoystick.x > 0.3) {
     
