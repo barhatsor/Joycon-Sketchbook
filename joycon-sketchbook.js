@@ -24,10 +24,21 @@ controllers.on.press('x', (value) => {
 
 });
 
+let leftJoystick = {
+  x: 0,
+  y: 0
+};
+
 let rightJoystick = {
   x: 0,
   y: 0
 };
+
+controllers.on.move('left-joystick', (value) => {
+
+  leftJoystick = value;
+  
+});
 
 controllers.on.move('right-joystick', (value) => {
 
@@ -37,9 +48,36 @@ controllers.on.move('right-joystick', (value) => {
 
 function gameLoop() {
   
-  Client.moveMouse(rightJoystick.x * 10, rightJoystick.y * 10);
+  Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
   
-  window.requestAnimationFrame(gameLoop);
+  if (leftJoystick.x > 0.3) {
+    
+    Client.moveMouse(20, 0);
+    
+  } else if (leftJoystick.x < 0.3) {
+    
+    Client.moveMouse(-20, 0);
+    
+  }
+  
+  if (leftJoystick.y > 0.3) {
+    
+    Client.moveMouse(0, 20);
+    
+  } else if (leftJoystick.y < 0.3) {
+    
+    Client.moveMouse(0, -20);
+    
+  }
+  
+  
+  const dialogEl = document.querySelector('.swal2-container');
+  
+  if (!dialogEl) {
+    
+    window.requestAnimationFrame(gameLoop);
+  
+  }
   
 }
 
