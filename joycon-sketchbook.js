@@ -7,11 +7,16 @@ const controllers = Joycon.controllers;
 let controllerConnected = false;
 
 controllers.on.connect(() => {
+  
   controllerConnected = true;
+  gameLoop();
+  
 });
 
 controllers.on.disconnect(() => {
+  
   controllerConnected = false;
+  
 });
 
 
@@ -90,5 +95,4 @@ function gameLoop() {
   
 }
 
-gameLoop();
 
