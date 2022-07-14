@@ -94,8 +94,8 @@ function gameLoop() {
     
   } else {
     
-    Client.pressKey('KeyS');
-    Client.pressKey('KeyW');
+    Client.releaseKey('KeyS');
+    Client.releaseKey('KeyW');
     
   }
   
