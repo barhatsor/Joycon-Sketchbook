@@ -72,8 +72,9 @@ function gameLoop() {
   
   
   const dialogEl = document.querySelector('.swal2-container');
+  const loading = (document.querySelector('#loading-screen').style.display !== 'none');
   
-  if (!dialogEl) {
+  if (!dialogEl && !loading) {
     
     window.requestAnimationFrame(gameLoop);
   
