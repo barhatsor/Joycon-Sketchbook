@@ -71,21 +71,31 @@ function gameLoop() {
   
   if (leftJoystick.x > 0.3) {
     
-    Client.moveMouse(20, 0);
+    Client.pressKey('KeyD');
     
   } else if (leftJoystick.x < 0.3) {
     
-    Client.moveMouse(-20, 0);
+    Client.pressKey('KeyA');
+    
+  } else {
+    
+    Client.releaseKey('KeyD');
+    Client.releaseKey('KeyA');
     
   }
   
   if (leftJoystick.y > 0.3) {
     
-    Client.moveMouse(0, 20);
-    
+    Client.pressKey('KeyS');
+        
   } else if (leftJoystick.y < 0.3) {
     
-    Client.moveMouse(0, -20);
+    Client.pressKey('KeyW');
+    
+  } else {
+    
+    Client.pressKey('KeyS');
+    Client.pressKey('KeyW');
     
   }
   
