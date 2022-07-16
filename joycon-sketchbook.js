@@ -146,6 +146,21 @@ controllers.on.press('right-shoulder', (value) => {
 });
 
 
+controllers.on.press('dpad-right', (value) => {
+  
+  if (value == 1) Client.pressKey('KeyV');
+  else Client.releaseKey('KeyV');
+
+});
+
+controllers.on.press('dpad-down', (value) => {
+  
+  if (value == 1) Client.pressKey('KeyH');
+  else Client.releaseKey('KeyH');
+
+});
+
+
 let leftJoystick = {
   x: 0,
   y: 0
@@ -173,7 +188,8 @@ let inAirplane = false;
 
 function gameLoop() {
   
-  if (world.characters[0].controlledObject
+  if (world.characters[0]
+      && world.characters[0].controlledObject
       && world.characters[0].controlledObject.leftAileron) {
     
     inAirplane = true;
