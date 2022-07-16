@@ -103,7 +103,7 @@ controllers.on.press('x', (value) => {
 
 controllers.on.press('left-trigger', (value) => {
 
-  if (inAirplane) {
+  if (inAirplane || inHelicopter) {
 
     if (value > 0.3) Client.pressKey('Space');
     else Client.releaseKey('Space');
@@ -119,7 +119,7 @@ controllers.on.press('left-trigger', (value) => {
 
 controllers.on.press('right-trigger', (value) => {
   
-  if (inAirplane) {
+  if (inAirplane || inHelicopter) {
     
     if (value > 0.3) Client.pressKey('ShiftLeft');
     else Client.releaseKey('ShiftLeft');
@@ -163,20 +163,6 @@ controllers.on.press('dpad-right', (value) => {
 
 });
 
-controllers.on.press('dpad-down', (value) => {
-  
-  if (value == 1) Client.pressKey('KeyH');
-  else Client.releaseKey('KeyH');
-
-});
-
-controllers.on.press('dpad-up', (value) => {
-  
-  if (value == 1) Client.pressKey('KeyX');
-  else Client.releaseKey('KeyX');
-
-});
-
 controllers.on.press('dpad-up', (value) => {
   
   if (value == 1) Client.pressKey('KeyX');
@@ -209,21 +195,32 @@ controllers.on.move('right-joystick', (value) => {
 
 
 let inAirplane = false;
-
+let inHelicopter = false;
 let inCar = false;
 
 function gameLoop() {
   
   if (world.characters[0]
       && world.characters[0].controlledObject
-      && (world.characters[0].controlledObject.leftAileron
-          || world.characters[0].controlledObject.rotors)) {
+      && world.characters[0].controlledObject.leftAileron) {
     
     inAirplane = true;
     
   } else {
     
     inAirplane = false;
+    
+  }
+  
+  if (world.characters[0]
+      && world.characters[0].controlledObject
+      && world.characters[0].controlledObject.rotors) {
+    
+    inHelicopter = true;
+    
+  } else {
+    
+    inHelicopter = false;
     
   }
   
