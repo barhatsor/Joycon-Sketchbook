@@ -140,6 +140,11 @@ controllers.on.press('left-shoulder', (value) => {
     if (value == 1) Client.pressKey('KeyA');
     else Client.releaseKey('KeyA');
   
+  } else if (inHelicopter) {
+    
+    if (value == 1) Client.pressKey('KeyQ');
+    else Client.releaseKey('KeyQ');
+    
   }
 
 });
@@ -151,6 +156,11 @@ controllers.on.press('right-shoulder', (value) => {
     if (value == 1) Client.pressKey('KeyD');
     else Client.releaseKey('KeyD');
   
+  } else if (inHelicopter) {
+    
+    if (value == 1) Client.pressKey('KeyE');
+    else Client.releaseKey('KeyE');
+    
   }
 
 });
