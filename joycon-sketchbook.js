@@ -123,6 +123,28 @@ controllers.on.press('right-trigger', (value) => {
 
 });
 
+controllers.on.press('left-shoulder', (value) => {
+  
+  if (inAirplane) {
+    
+    if (value == 1) Client.pressKey('KeyA');
+    else Client.releaseKey('KeyA');
+  
+  }
+
+});
+
+controllers.on.press('right-shoulder', (value) => {
+  
+  if (inAirplane) {
+    
+    if (value == 1) Client.pressKey('KeyD');
+    else Client.releaseKey('KeyD');
+  
+  }
+
+});
+
 
 let leftJoystick = {
   x: 0,
