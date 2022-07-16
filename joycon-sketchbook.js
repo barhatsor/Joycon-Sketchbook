@@ -116,8 +116,8 @@ controllers.on.press('right-trigger', (value) => {
   
   if (inAirplane) {
     
-    if (value > 0.3) Client.pressKey('Shift');
-    else Client.releaseKey('Shift');
+    if (value > 0.3) Client.pressKey('ShiftLeft');
+    else Client.releaseKey('ShiftLeft');
   
   }
 
