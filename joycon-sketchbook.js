@@ -163,22 +163,47 @@ function gameLoop() {
   Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
   
   
-  if (leftJoystick.x > 0.3) {
-
-    Client.pressKey('KeyD');
-    Client.releaseKey('KeyA');
-
-  } else if (leftJoystick.x < -0.3) {
-
-    Client.pressKey('KeyA');
-    Client.releaseKey('KeyD');
-
+  if (!inAirplane) {
+    
+    if (leftJoystick.x > 0.3) {
+  
+      Client.pressKey('KeyD');
+      Client.releaseKey('KeyA');
+  
+    } else if (leftJoystick.x < -0.3) {
+  
+      Client.pressKey('KeyA');
+      Client.releaseKey('KeyD');
+  
+    } else {
+  
+      Client.releaseKey('KeyD');
+      Client.releaseKey('KeyA');
+  
+    }
+    
   } else {
-
-    Client.releaseKey('KeyD');
-    Client.releaseKey('KeyA');
-
+    
+    if (leftJoystick.x > 0.3) {
+  
+      Client.pressKey('KeyE');
+      Client.releaseKey('KeyQ');
+  
+    } else if (leftJoystick.x < -0.3) {
+  
+      Client.pressKey('KeyQ');
+      Client.releaseKey('KeyE');
+  
+    } else {
+  
+      Client.releaseKey('KeyQ');
+      Client.releaseKey('KeyE');
+  
+    }
+    
   }
+  
+  
 
   if (leftJoystick.y > 0.3) {
 
