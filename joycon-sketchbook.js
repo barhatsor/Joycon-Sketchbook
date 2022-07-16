@@ -5,6 +5,20 @@ const controllers = Joycon.controllers;
 /*
 const actionMappings = {
   
+  /* player /
+  down: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  enter: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  enter_passenger: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  jump: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  left: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  primary: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  right: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  run: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  seat_switch: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  secondary: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  up: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  use: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
+  
   /* car /
   brake: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
   exitVehicle: i {isPressed: false, justPressed: false, justReleased: false, eventCodes: Array(1)}
@@ -69,9 +83,13 @@ controllers.on.press('a', (value) => {
 });
 
 controllers.on.press('left-joystick', (value) => {
-
-  if (value == 1) Client.pressKey('ShiftLeft');
-  else Client.releaseKey('ShiftLeft');
+  
+  if (!inAirplane) {
+    
+    if (value == 1) Client.pressKey('ShiftLeft');
+    else Client.releaseKey('ShiftLeft');
+  
+  }
 
 });
 
@@ -79,6 +97,29 @@ controllers.on.press('x', (value) => {
 
   if (value == 1) Client.pressKey('KeyF');
   else Client.releaseKey('KeyF');
+
+});
+
+
+controllers.on.press('left-trigger', (value) => {
+
+  if (inAirplane) {
+
+    if (value > 0.3) Client.pressKey('Space');
+    else Client.releaseKey('Space');
+    
+  }
+
+});
+
+controllers.on.press('right-trigger', (value) => {
+  
+  if (inAirplane) {
+    
+    if (value > 0.3) Client.pressKey('Shift');
+    else Client.releaseKey('Shift');
+  
+  }
 
 });
 
@@ -106,43 +147,61 @@ controllers.on.move('right-joystick', (value) => {
 });
 
 
+let inAirplane = false;
+
 function gameLoop() {
+  
+  if (world.characters[0].controlledObject.actions.ascend) {
+    
+    inAirplane = true;
+    
+  }
+  
+  
   
   Client.moveMouse(rightJoystick.x * 20, rightJoystick.y * 20);
   
-  if (leftJoystick.x > 0.3) {
+  
+  
+  if (!inAirplane) {
+  
+    if (leftJoystick.x > 0.3) {
+      
+      Client.pressKey('KeyD');
+      Client.releaseKey('KeyA');
+      
+    } else if (leftJoystick.x < -0.3) {
+      
+      Client.pressKey('KeyA');
+      Client.releaseKey('KeyD');
+      
+    } else {
+      
+      Client.releaseKey('KeyD');
+      Client.releaseKey('KeyA');
+      
+    }
     
-    Client.pressKey('KeyD');
-    Client.releaseKey('KeyA');
-    
-  } else if (leftJoystick.x < -0.3) {
-    
-    Client.pressKey('KeyA');
-    Client.releaseKey('KeyD');
-    
-  } else {
-    
-    Client.releaseKey('KeyD');
-    Client.releaseKey('KeyA');
+    if (leftJoystick.y > 0.3) {
+      
+      Client.pressKey('KeyS');
+      Client.releaseKey('KeyW');
+          
+    } else if (leftJoystick.y < -0.3) {
+      
+      Client.pressKey('KeyW');
+      Client.releaseKey('KeyS');
+      
+    } else {
+      
+      Client.releaseKey('KeyS');
+      Client.releaseKey('KeyW');
+      
+    }
     
   }
   
-  if (leftJoystick.y > 0.3) {
-    
-    Client.pressKey('KeyS');
-    Client.releaseKey('KeyW');
-        
-  } else if (leftJoystick.y < -0.3) {
-    
-    Client.pressKey('KeyW');
-    Client.releaseKey('KeyS');
-    
-  } else {
-    
-    Client.releaseKey('KeyS');
-    Client.releaseKey('KeyW');
-    
-  }
+  
   
   if (controllerConnected) {
     window.requestAnimationFrame(gameLoop);
