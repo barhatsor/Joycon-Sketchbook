@@ -135,15 +135,12 @@ controllers.on.press('dpad-up', (value) => {
 
 });
 
-
-const hornSFX = document.querySelector('.horn-sfx');
-
 controllers.on.press('dpad-down', (value) => {
   
   if (value == 1) {
     
-    hornSFX.currentTime = 0;
-    hornSFX.play();
+    document.querySelector('.horn-sfx').currentTime = 0;
+    document.querySelector('.horn-sfx').play();
     
   }
 
