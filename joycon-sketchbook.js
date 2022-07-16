@@ -137,7 +137,7 @@ controllers.on.press('dpad-up', (value) => {
 
 controllers.on.press('dpad-down', (value) => {
   
-  if (value == 1) {
+  if (inCar && value == 1) {
     
     document.querySelector('.horn-sfx').currentTime = 0;
     document.querySelector('.horn-sfx').play();
