@@ -136,6 +136,20 @@ controllers.on.press('dpad-up', (value) => {
 });
 
 
+const hornSFX = document.querySelector('.horn-sfx');
+
+controllers.on.press('dpad-down', (value) => {
+  
+  if (value == 1) {
+    
+    hornSFX.currentTime = 0;
+    hornSFX.play();
+    
+  }
+
+});
+
+
 let freeCameraMode = false;
 
 controllers.on.press('dpad-left', (value) => {
