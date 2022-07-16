@@ -108,6 +108,11 @@ controllers.on.press('left-trigger', (value) => {
     if (value > 0.3) Client.pressKey('Space');
     else Client.releaseKey('Space');
     
+  } else if (inCar) {
+    
+    if (value > 0.3) Client.pressKey('KeyS');
+    else Client.releaseKey('KeyS');
+    
   }
 
 });
@@ -119,6 +124,11 @@ controllers.on.press('right-trigger', (value) => {
     if (value > 0.3) Client.pressKey('ShiftLeft');
     else Client.releaseKey('ShiftLeft');
   
+  } else if (inCar) {
+    
+    if (value > 0.3) Client.pressKey('KeyW');
+    else Client.releaseKey('KeyW');
+    
   }
 
 });
@@ -160,6 +170,20 @@ controllers.on.press('dpad-down', (value) => {
 
 });
 
+controllers.on.press('dpad-up', (value) => {
+  
+  if (value == 1) Client.pressKey('KeyX');
+  else Client.releaseKey('KeyX');
+
+});
+
+controllers.on.press('dpad-up', (value) => {
+  
+  if (value == 1) Client.pressKey('KeyX');
+  else Client.releaseKey('KeyX');
+
+});
+
 
 let leftJoystick = {
   x: 0,
@@ -186,6 +210,8 @@ controllers.on.move('right-joystick', (value) => {
 
 let inAirplane = false;
 
+let inCar = false;
+
 function gameLoop() {
   
   if (world.characters[0]
@@ -193,6 +219,14 @@ function gameLoop() {
       && world.characters[0].controlledObject.leftAileron) {
     
     inAirplane = true;
+    
+  }
+  
+  if (world.characters[0]
+      && world.characters[0].controlledObject
+      && world.characters[0].controlledObject.steeringWheel) {
+    
+    inCar = true;
     
   }
   
@@ -242,22 +276,25 @@ function gameLoop() {
   }
   
   
-
-  if (leftJoystick.y > 0.3) {
-
-    Client.pressKey('KeyS');
-    Client.releaseKey('KeyW');
-
-  } else if (leftJoystick.y < -0.3) {
-
-    Client.pressKey('KeyW');
-    Client.releaseKey('KeyS');
-
-  } else {
-
-    Client.releaseKey('KeyS');
-    Client.releaseKey('KeyW');
-
+  if (!inCar) {
+    
+    if (leftJoystick.y > 0.3) {
+  
+      Client.pressKey('KeyS');
+      Client.releaseKey('KeyW');
+  
+    } else if (leftJoystick.y < -0.3) {
+  
+      Client.pressKey('KeyW');
+      Client.releaseKey('KeyS');
+  
+    } else {
+  
+      Client.releaseKey('KeyS');
+      Client.releaseKey('KeyW');
+  
+    }
+    
   }
   
   
