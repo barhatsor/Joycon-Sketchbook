@@ -152,6 +152,7 @@ let inAirplane = false;
 function gameLoop() {
   
   if (world.characters[0].controlledObject
+      && world.characters[0].controlledObject.actions
       && world.characters[0].controlledObject.actions.ascend) {
     
     inAirplane = true;
