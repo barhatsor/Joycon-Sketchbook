@@ -137,15 +137,27 @@ controllers.on.press('dpad-up', (value) => {
 
 
 let freeCameraMode = false;
+let justPressedDpadLeft = false;
 
 controllers.on.press('dpad-left', (value) => {
   
   if (value == 1) {
+    
     Client.pressKey('KeyC', true);
+    
     freeCameraMode = true;
+    justPressedDpadLeft = true;
+    
   } else {
+    
     Client.releaseKey('KeyC', true);
-    freeCameraMode = false;
+    
+    if (justPressedDpadLeft) {
+      justPressedDpadLeft = false;
+    } else {
+      freeCameraMode = false;
+    }
+    
   }
 
 });
