@@ -2,10 +2,11 @@
 let Client = {
   
   // keys are: KeyA, KeyW, KeyD, KeyS, Space, ShiftLeft
-  'pressKey': (keyName) => {
+  'pressKey': (keyName, shiftKey) => {
     
     const keyEvent = new KeyboardEvent('keydown', {
-      'code': keyName
+      'code': keyName,
+      'shiftKey': shiftKey ? true : false
     });
 
     document.dispatchEvent(keyEvent);
