@@ -145,19 +145,22 @@ controllers.on.press('dpad-left', (value) => {
     
     Client.pressKey('KeyC', true);
     
-    freeCameraMode = true;
-    justPressedDpadLeft = true;
+    if (justPressedDpadLeft) {
+      
+      justPressedDpadLeft = false;
+      freeCameraMode = false;
+      
+    } else {
+      
+      justPressedDpadLeft = true;
+      freeCameraMode = true;
+      
+    }
     
   } else {
     
     Client.releaseKey('KeyC', true);
-    
-    if (justPressedDpadLeft) {
-      justPressedDpadLeft = false;
-    } else {
-      freeCameraMode = false;
-    }
-    
+        
   }
 
 });
