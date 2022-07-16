@@ -220,6 +220,10 @@ function gameLoop() {
     
     inAirplane = true;
     
+  } else {
+    
+    inAirplane = false;
+    
   }
   
   if (world.characters[0]
@@ -227,6 +231,10 @@ function gameLoop() {
       && world.characters[0].controlledObject.steeringWheel) {
     
     inCar = true;
+    
+  } else {
+    
+    inCar = false;
     
   }
   
