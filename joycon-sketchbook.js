@@ -216,7 +216,8 @@ function gameLoop() {
   
   if (world.characters[0]
       && world.characters[0].controlledObject
-      && world.characters[0].controlledObject.leftAileron) {
+      && (world.characters[0].controlledObject.leftAileron
+          || world.characters[0].controlledObject.rotors)) {
     
     inAirplane = true;
     
