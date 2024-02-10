@@ -7,7 +7,7 @@
 
 # 📒 Joycon-Sketchbook
 
-Sketchbook with [Joycon.js](https://github.com/barhatsor/joycon.js) intergration.
+Sketchbook with [Joycon.js](https://github.com/benhatsor/joycon.js) intergration.
 
 Check out [joycon-sketchbook.js](/joycon-sketchbook.js) for the controller integration.
 
